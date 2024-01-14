@@ -1,0 +1,56 @@
+html {
+  &.scroll {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-text-size-adjust: 100%;
+
+  &.body-hidden {
+    overflow: hidden;
+  }
+}
+
+p,
+a,
+ul,
+li,
+ol,
+span,
+menu,
+header,
+footer,
+caption,
+input,
+textarea,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+* {
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: all;
+}

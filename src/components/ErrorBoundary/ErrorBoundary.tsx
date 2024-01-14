@@ -1,5 +1,5 @@
 import React from 'react';
-import { Props, State } from './interfaces';
+import { Props, State } from './ErrorBoundary.interfaces';
 
 class ErrorBoundary extends React.Component<Props, State> {
   state = { hasError: false };

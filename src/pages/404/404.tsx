@@ -1,5 +1,5 @@
 import React from 'react';
-import './404.scss';
+import './404.styles.scss';
 
 const Page404 = () => {
   return (

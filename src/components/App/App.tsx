@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { connect, WithStore, MapStateToProps, MapDispatchToProps } from '../../redux/services/Imports';
 
-import './App.scss';
+import './App.styles.scss';
 import Page404 from '../../pages/404/404';
 import Main from '../../pages/Main/Main';
 import Alert from '../Alert/Alert';

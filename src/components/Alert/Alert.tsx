@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, WithStore, MapStateToProps, MapDispatchToProps } from '../../redux/services/Imports';
-import './Alert.scss';
+import './Alert.styles.scss';
 
 const Alert = ({ alert, alertLoaded }: { alert: string[]; alertLoaded: any }) => {
   if (alert.length) {

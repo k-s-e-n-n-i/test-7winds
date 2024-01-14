@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.scss';
+import './Header.styles.scss';
 
 import { Tabs, Tab } from '@mui/material';
 import AppsIcon from '@mui/icons-material/Apps';

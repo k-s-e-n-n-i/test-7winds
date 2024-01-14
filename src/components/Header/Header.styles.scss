@@ -6,8 +6,23 @@
   align-items: center;
   gap: 20px;
   padding: 0 20px;
-}
 
-.css-1r7avug-MuiButtonBase-root-MuiTab-root.Mui-selected {
-  color: #fff !important;
+  &__tabs {
+    min-height: auto !important;
+  }
+
+  .MuiTabs-root {
+    margin-left: 7px;
+  }
+
+  .MuiTabs-flexContainer {
+    gap: 20px;
+  }
+
+  .MuiButtonBase-root {
+    color: #fff !important;
+    padding: 13px 4px 11px;
+    text-transform: none;
+    min-height: auto !important;
+  }
 }

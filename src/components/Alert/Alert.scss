@@ -1,0 +1,28 @@
+.alert {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  min-width: 150px;
+  max-width: 300px;
+  background: rgb(172, 54, 54);
+  padding: 30px 10px 10px 10px;
+  border-radius: 3px;
+  z-index: 100;
+
+  &__close {
+    width: 24px;
+    height: 24px;
+    background-image: url('./img/close.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-left: 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+  p {
+    color: #fff;
+  }
+}

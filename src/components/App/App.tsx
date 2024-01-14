@@ -4,6 +4,9 @@ import { connect, WithStore, MapStateToProps, MapDispatchToProps } from '../../r
 
 import './App.scss';
 import Page404 from '../../pages/404/404';
+import Main from '../../pages/Main/Main';
+import Alert from '../Alert/Alert';
+import Header from '../Header/Header';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -20,7 +23,12 @@ const App = () => {
       <CssBaseline />
       <Router>
         <div className="app">
+          <Header />
+          <Alert />
+
           <Routes>
+            <Route path="/" element={<Main />} />
+
             <Route path="*" element={<Page404 />} />
           </Routes>
         </div>

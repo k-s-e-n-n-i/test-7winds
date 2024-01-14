@@ -1,0 +1,13 @@
+@import '../../services/colors.scss';
+
+.header {
+  border: 1px solid $border;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.css-1r7avug-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: #fff !important;
+}

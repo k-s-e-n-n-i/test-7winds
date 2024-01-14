@@ -8,5 +8,5 @@
 
   "breadcrumbs.enabled": true,
   "prettier.semi": true,
-  "prettier.singleQuote": false
+  "prettier.singleQuote": true
 }

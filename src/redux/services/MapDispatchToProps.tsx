@@ -1,10 +1,11 @@
 import { bindActionCreators } from 'redux';
-import { AlertLoaded } from '../actions/Actions';
+import { AlertLoaded, ListInfoLoaded } from '../actions/Actions';
 
 export const MapDispatchToProps = (dispatch: any) => {
   return bindActionCreators(
     {
       alertLoaded: AlertLoaded,
+      listInfoLoaded: ListInfoLoaded,
     },
     dispatch
   );

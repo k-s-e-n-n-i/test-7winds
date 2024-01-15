@@ -4,6 +4,8 @@ const reducer = (state: any = ProjectState, action: { type: string; payload: obj
   switch (action.type) {
     case 'ALERT_LOADED':
       return { ...state, alert: action.payload };
+    case 'LIST_INFO_LOADED':
+      return { ...state, listInfo: action.payload };
 
     default:
       return state;

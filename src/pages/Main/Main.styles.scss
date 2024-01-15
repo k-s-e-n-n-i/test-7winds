@@ -1,0 +1,28 @@
+@import '../../services/colors.scss';
+
+.page-main {
+  min-height: calc(100vh - 44px);
+  display: grid;
+  grid-template-columns: 234px auto;
+  grid-template-rows: min-content auto;
+
+  &__select {
+    border: 1px solid $border;
+    border-width: 0 1px 0 0;
+    margin: 0 !important;
+    padding: 5px 0 5px 20px;
+  }
+
+  &__name-project {
+    align-self: center;
+    padding: 11px 15px 12px;
+    box-sizing: border-box;
+    margin: 0 !important;
+    border: 1px solid $border;
+    border-width: 0 1px 0 0;
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}

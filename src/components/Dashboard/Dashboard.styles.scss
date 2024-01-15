@@ -1,0 +1,36 @@
+@import '../../services/colors.scss';
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid $border;
+  border-width: 1px 1px 0 0;
+  height: 100%;
+
+  .MuiListItem-root {
+    gap: 14px;
+    padding: 0 20px;
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+
+  .MuiList-root {
+    padding: 0;
+  }
+
+  .MuiListItemText-root {
+    margin: 0;
+  }
+
+  .MuiTypography-root {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 8px 0;
+  }
+}

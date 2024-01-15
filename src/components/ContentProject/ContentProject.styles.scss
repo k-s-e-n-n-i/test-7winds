@@ -1,0 +1,92 @@
+@import '../../services/colors.scss';
+
+.content-project {
+  border: 1px solid $border;
+  border-width: 1px 0 0 0;
+
+  &__table-row {
+    td:nth-child(1) {
+      width: 110px;
+    }
+    td:nth-child(2) {
+      width: max-content;
+    }
+    td:nth-child(3),
+    td:nth-child(4),
+    td:nth-child(5),
+    td:nth-child(6) {
+      width: 200px;
+    }
+  }
+
+  &__icon {
+    width: max-content;
+    display: flex;
+    justify-content: start;
+    border-radius: 6px;
+    padding: 6px;
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        gap: 6px;
+        background-color: #414144;
+
+        .content-project__icon-delete {
+          pointer-events: all;
+          opacity: 1;
+          display: block !important;
+        }
+      }
+    }
+  }
+
+  &__add_has-parent {
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 11px;
+      height: 1px;
+      background-color: #c6c6c6;
+      position: absolute;
+      right: calc(100% - 3px);
+      bottom: 12px;
+    }
+
+    &:after {
+      content: '';
+      width: 1px;
+      height: 60px;
+      background-color: #c6c6c6;
+      position: absolute;
+      right: calc(100% + 8px);
+      bottom: 12px;
+    }
+  }
+
+  &__icon-delete {
+    display: none !important;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .MuiTable-root {
+    margin-left: 10px;
+  }
+
+  .MuiTableRow-root {
+    height: 60px;
+    box-sizing: border-box;
+  }
+
+  .MuiTableCell-root {
+    padding: 0 12px;
+    box-sizing: border-box;
+    height: 60px;
+  }
+
+  .MuiInputBase-root {
+    height: 35px;
+  }
+}

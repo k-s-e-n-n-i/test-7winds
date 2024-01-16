@@ -11,16 +11,13 @@ export interface IReduxList extends IRedux {
 
 export interface IReduxCreate extends IRedux {
   data: ITable;
+  newLine: ITable;
 }
 
 export interface IReduxEdit extends IRedux {
   sendData: ITable;
-  listInfo: ITable[];
-  listInfoLoaded: any;
 }
 
 export interface IReduxDelete extends IRedux {
   id: number;
-  listInfo: ITable[];
-  listInfoLoaded: any;
 }

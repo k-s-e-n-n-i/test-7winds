@@ -10,7 +10,7 @@ export const HeadList: string[] = [
 ];
 
 export const StubRow: ITable = {
-  id: 0,
+  id: -10,
   rowName: '',
   salary: 0,
   equipmentCosts: 0,

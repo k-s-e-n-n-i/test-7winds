@@ -1,18 +1,15 @@
 import { ITable } from '../ContentProject/ContentProject.interfaces';
 
 export interface Props {
-  fields: { varField: string; set: any }[];
   linePrint: ITable;
-  i: number;
+  numChild: number;
   level: number;
-  editLine: any;
-  deleteLine: any;
-  createLine: any;
 
   editState: any;
   idEditLine: number;
-  setIdEditLine: any;
-
   addState: any;
   idAddLine: number;
+
+  clean: any;
+  parent: ITable | null;
 }

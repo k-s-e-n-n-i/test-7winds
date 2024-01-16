@@ -1,8 +1,14 @@
+import { ITable } from '../ContentProject/ContentProject.interfaces';
+
 export interface Props {
-  fields: { varField: string; set: any }[];
   onSubmit: any;
   level: number;
   i: number;
   id: number;
-  deleteLine?: any;
+  linePrint?: ITable;
+  add?: boolean;
+  parent: ITable;
+  listInfo: ITable[];
+  listInfoLoaded: any;
+  alertLoaded: any;
 }

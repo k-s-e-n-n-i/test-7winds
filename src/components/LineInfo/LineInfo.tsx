@@ -6,18 +6,15 @@ import RowEdit from '../RowEdit/RowEdit';
 import Options from '../Options/Options';
 
 const LineInfo = ({
-  fields,
   linePrint,
-  i,
+  numChild,
   level,
-  editLine,
-  deleteLine,
-  createLine,
   editState,
   idEditLine,
-  setIdEditLine,
   addState,
   idAddLine,
+  clean,
+  parent,
 }: Props) => {
   const { id, rowName, salary, equipmentCosts, overheads, estimatedProfit, child } = linePrint;
   const fieldsInfo = [rowName, salary, equipmentCosts, overheads, estimatedProfit];
@@ -25,19 +22,11 @@ const LineInfo = ({
   return (
     <>
       {idEditLine === id ? (
-        <RowEdit
-          fields={fields}
-          onSubmit={editLine}
-          level={level}
-          i={i}
-          id={id}
-          deleteLine={deleteLine}
-          key={i}
-        />
+        <RowEdit onSubmit={clean} level={level} i={numChild} id={id} key={numChild} linePrint={linePrint} />
       ) : (
-        <TableRow className="content-project__table-row" onDoubleClick={editState(id, linePrint)} key={i}>
+        <TableRow className="content-project__table-row" onDoubleClick={editState(id)} key={numChild}>
           <TableCell>
-            <Options level={level} i={i} id={id} addState={addState} deleteLine={deleteLine} />
+            <Options level={level} firstChild={numChild === 0} id={id} addState={addState} parent={parent} />
           </TableCell>
           {fieldsInfo.map((item, i) => (
             <TableCell key={i}>{item}</TableCell>
@@ -45,36 +34,26 @@ const LineInfo = ({
         </TableRow>
       )}
 
-      {idAddLine === id ? (
-        <RowEdit
-          fields={fields}
-          onSubmit={createLine}
-          level={level + 1}
-          i={i}
-          id={id}
-          deleteLine={deleteLine}
-        />
-      ) : null}
-
       {child.length
         ? child.map((item, i) => (
             <LineInfo
-              fields={fields}
               linePrint={item}
-              i={i}
+              numChild={i}
               level={level + 1}
-              editLine={editLine}
-              deleteLine={deleteLine}
-              createLine={createLine}
+              key={i}
               editState={editState}
               addState={addState}
               idEditLine={idEditLine}
-              setIdEditLine={setIdEditLine}
               idAddLine={idAddLine}
-              key={i}
+              clean={clean}
+              parent={linePrint}
             />
           ))
         : null}
+
+      {idAddLine === id ? (
+        <RowEdit onSubmit={clean} level={level + 1} i={numChild} id={id} parent={linePrint} add />
+      ) : null}
     </>
   );
 };

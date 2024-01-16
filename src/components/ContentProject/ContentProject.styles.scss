@@ -19,6 +19,10 @@
     }
   }
 
+  &__add-button {
+    margin: 20px;
+  }
+
   &__icon {
     width: max-content;
     display: flex;
@@ -73,6 +77,7 @@
 
   .MuiTable-root {
     margin-left: 10px;
+    width: calc(100% - 10px);
   }
 
   .MuiTableRow-root {
@@ -88,5 +93,10 @@
 
   .MuiInputBase-root {
     height: 35px;
+  }
+
+  .MuiPaper-root {
+    background-color: #202124;
+    background-image: none;
   }
 }

@@ -2,7 +2,6 @@ import { catchError, of } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
 import { API } from './APIRequests';
 import { IReduxCreate, IReduxDelete, IReduxEdit, IReduxList } from './InterfacesRedux';
-import { UpdatedData } from './GlobalFunctions';
 import { ITable } from '../../components/ContentProject/ContentProject.interfaces';
 import { IAPIEdit } from './InterfacesAPI';
 
@@ -18,10 +17,11 @@ class ServiceRedux {
       .subscribe();
   };
 
-  createLine = ({ data, success, alertLoaded }: IReduxCreate) => {
+  createLine = ({ data, newLine, success, alertLoaded }: IReduxCreate) => {
     API.createLine(data)
       .pipe(
         tap((data: IAPIEdit) => {
+          newLine.id = data.current.id;
         }),
         finalize(() => success()),
         catchError(PrintAlertError(alertLoaded))
@@ -29,28 +29,18 @@ class ServiceRedux {
       .subscribe();
   };
 
-  editLine = ({ sendData, success, listInfo, listInfoLoaded, alertLoaded }: IReduxEdit) => {
+  editLine = ({ sendData, success, alertLoaded }: IReduxEdit) => {
     API.editLine({ data: sendData, rID: sendData.id })
       .pipe(
-        tap((data: IAPIEdit) => {
-          const arr = UpdatedData({ listInfo, currentData: data.current, sendData });
-          listInfoLoaded(arr);
-        }),
         finalize(() => success()),
         catchError(PrintAlertError(alertLoaded))
       )
       .subscribe();
   };
 
-  deleteLine = ({ id, success, listInfo, listInfoLoaded, alertLoaded }: IReduxDelete) => {
+  deleteLine = ({ id, success, alertLoaded }: IReduxDelete) => {
     API.deleteLine(id)
       .pipe(
-        tap(() => {
-          const arr = listInfo.reduce((result: any, item) => {
-            return item.id !== id ? [...result, item] : result;
-          }, []);
-          listInfoLoaded(arr);
-        }),
         finalize(() => success()),
         catchError(PrintAlertError(alertLoaded))
       )
@@ -64,13 +54,13 @@ const PrintAlertError = (alertLoaded: any) => (err: any) => {
   switch (err.response.status) {
     case 400:
     case 401:
-      alertLoaded(err.response.data.message);
+      alertLoaded(err);
       break;
     case 404:
       alertLoaded('');
       break;
     default:
-      alertLoaded(err.response.data.message);
+      alertLoaded(err);
   }
 
   return of(err);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Props } from './LineInfo.interfaces';
-
+import './LineInfo.styles.scss';
 import { TableRow, TableCell } from '@mui/material';
 import RowEdit from '../RowEdit/RowEdit';
 import Options from '../Options/Options';
@@ -24,7 +24,7 @@ const LineInfo = ({
       {idEditLine === id ? (
         <RowEdit onSubmit={clean} level={level} i={numChild} id={id} key={numChild} linePrint={linePrint} />
       ) : (
-        <TableRow className="content-project__table-row" onDoubleClick={editState(id)} key={numChild}>
+        <TableRow className="line-info" onDoubleClick={editState(id)} key={numChild}>
           <TableCell>
             <Options level={level} firstChild={numChild === 0} id={id} addState={addState} parent={parent} />
           </TableCell>

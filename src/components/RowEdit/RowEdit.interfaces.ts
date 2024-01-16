@@ -7,6 +7,7 @@ export interface Props {
   id: number;
   linePrint?: ITable;
   add?: boolean;
+  addChild?: boolean;
   parent: ITable;
   listInfo: ITable[];
   listInfoLoaded: any;

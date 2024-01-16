@@ -5,7 +5,7 @@ import { Props } from './Options.interfaces';
 import './Options.styles.scss';
 import { ServiceData } from '../../redux/services/ServiceRedux';
 
-const Options = ({ level, id, addState, parent, listInfo, listInfoLoaded, alertLoaded }: Props) => {
+const Options = ({ id, addState, parent, listInfo, listInfoLoaded, alertLoaded }: Props) => {
   const DeleteLine = (id: number) => () => {
     if (parent) {
       parent.child = parent?.child.filter((x) => x.id !== id);
@@ -23,13 +23,9 @@ const Options = ({ level, id, addState, parent, listInfo, listInfoLoaded, alertL
   };
 
   return (
-    <div className="options" style={{ marginLeft: `${level * 20}px` }}>
-      <div onClick={addState(id)} className={`${level ? 'options__add-has-parent' : ''}`}>
-        <TextSnippetIcon />
-      </div>
-      <div onClick={DeleteLine(id)}>
-        <DeleteIcon color="error" className="options__delete" />
-      </div>
+    <div className="options">
+      <TextSnippetIcon onClick={addState(id)} />
+      <DeleteIcon color="error" className="options__delete" onClick={DeleteLine(id)} />
     </div>
   );
 };

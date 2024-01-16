@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ContentProject.styles.scss';
 import { connect, WithStore, MapStateToProps, MapDispatchToProps } from '../../redux/services/Imports';
-import {
-  TableContainer,
-  Paper,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-  Button,
-} from '@mui/material';
+import { Button } from '@mui/material';
 import { Props } from './ContentProject.interfaces';
 import { HeadList } from './ContentProject.constants';
 import { ServiceData } from '../../redux/services/ServiceRedux';
@@ -46,44 +37,39 @@ const ContentProject = ({ listInfo, listInfoLoaded, alertLoaded }: Props) => {
   return (
     <div className="content-project">
       <form>
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow className="content-project__table-row">
-                {HeadList.map((name, i) => (
-                  <TableCell align="left" key={i}>
-                    {name}
-                  </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {listInfo.length ? (
-                listInfo.map((item, i) => (
-                  <LineInfo
-                    linePrint={item}
-                    numChild={i}
-                    level={0}
-                    key={i}
-                    editState={EditState}
-                    addState={AddState}
-                    idEditLine={idEditLine}
-                    idAddLine={idAddLine}
-                    clean={CleanEdit}
-                    parent={null}
-                  />
-                ))
-              ) : (
-                <RowEdit onSubmit={CleanEdit} level={0} add />
-              )}
-
-              {addNewParentLine && <RowEdit onSubmit={CleanEdit} level={0} add />}
-            </TableBody>
-          </Table>
-          <div className="content-project__add-button">
-            {!addNewParentLine && <Button onClick={ShowNewLine}>Добавить новую запись</Button>}
+        <div>
+          <div className="content-project__table-row">
+            {HeadList.map((name, i) => (
+              <div key={i}>{name}</div>
+            ))}
           </div>
-        </TableContainer>
+        </div>
+        <ul className="content-project__list">
+          {listInfo.length ? (
+            listInfo.map((item, i) => (
+              <LineInfo
+                linePrint={item}
+                numChild={i}
+                level={0}
+                key={i}
+                editState={EditState}
+                addState={AddState}
+                idEditLine={idEditLine}
+                idAddLine={idAddLine}
+                clean={CleanEdit}
+                parent={null}
+              />
+            ))
+          ) : (
+            <RowEdit onSubmit={CleanEdit} level={0} add />
+          )}
+
+          {addNewParentLine && <RowEdit onSubmit={CleanEdit} level={0} add />}
+        </ul>
+
+        <div className="content-project__add-button">
+          {!addNewParentLine && <Button onClick={ShowNewLine}>Добавить новую запись</Button>}
+        </div>
       </form>
     </div>
   );

@@ -1,14 +1,36 @@
+@import '../../services/colors.scss';
+
+$_treeview-level-size: 55px;
+
 .line-info {
-  td:nth-child(1) {
-    width: 110px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 20px;
+  border: 1px solid $border;
+  border-width: 0 0 1px 0;
+
+  &:last-child {
+    border: 0;
   }
-  td:nth-child(2) {
-    width: max-content;
-  }
-  td:nth-child(3),
-  td:nth-child(4),
-  td:nth-child(5),
-  td:nth-child(6) {
-    width: 200px;
+
+  &__fields {
+    width: 100%;
+    height: 60px;
+    display: grid;
+    grid-template-columns: auto 650px 200px 200px 200px 200px;
+    align-items: center;
+    border: 1px solid $border;
+    border-width: 0 0 1px 0;
+
+    &:last-child {
+      border: 0;
+    }
+
+    > div {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
   }
 }

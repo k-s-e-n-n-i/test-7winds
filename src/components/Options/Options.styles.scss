@@ -3,18 +3,20 @@
   display: flex;
   justify-content: start;
   border-radius: 6px;
-  padding: 6px;
+  padding: 6px !important;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
 
   @media (hover: hover) {
     &:hover {
       gap: 6px;
       background-color: #414144;
 
-      .content-project__icon-delete {
+      .options__delete {
         pointer-events: all;
         opacity: 1;
-        display: block !important;
+        display: block;
       }
     }
   }
@@ -44,7 +46,7 @@
   }
 
   &__delete {
-    display: none !important;
+    display: none;
     pointer-events: none;
     opacity: 0;
   }

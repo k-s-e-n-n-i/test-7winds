@@ -25,10 +25,12 @@ const ContentProject = ({ listInfo, listInfoLoaded, alertLoaded }: Props) => {
   const [idEditLine, setIdEditLine] = useState(-1);
   const EditState = (id: number) => () => {
     setIdEditLine(id);
+    setIdAddLine(-2);
   };
 
   const [idAddLine, setIdAddLine] = useState(-2);
   const AddState = (id: number) => () => {
+    setIdEditLine(-1);
     setIdAddLine(id);
   };
 

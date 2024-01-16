@@ -43,10 +43,7 @@ const RowEdit = ({
       ServiceData.editLine({
         sendData: { ...StubRow, ...linePrint },
         alertLoaded,
-        success: () => {
-          onSubmit();
-          listInfoLoaded(listInfo);
-        },
+        success: onSubmit,
       });
     }
   };
@@ -64,7 +61,7 @@ const RowEdit = ({
       };
 
       if (parent) {
-        parent?.child.push(newLine);
+        parent.child = [...parent.child, newLine];
       } else {
         listInfo.push(newLine);
       }
@@ -73,10 +70,7 @@ const RowEdit = ({
         data: newLine,
         newLine,
         alertLoaded,
-        success: () => {
-          onSubmit();
-          listInfoLoaded(listInfo);
-        },
+        success: onSubmit,
       });
     }
   };

@@ -64,7 +64,7 @@ const ContentProject = ({ listInfo, listInfoLoaded, alertLoaded }: Props) => {
             <RowEdit onSubmit={CleanEdit} level={0} add />
           )}
 
-          {addNewParentLine && <RowEdit onSubmit={CleanEdit} level={0} add />}
+          <li>{addNewParentLine && <RowEdit onSubmit={CleanEdit} level={0} add />}</li>
         </ul>
 
         <div className="content-project__add-button">
